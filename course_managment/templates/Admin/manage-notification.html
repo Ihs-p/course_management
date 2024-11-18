@@ -1,0 +1,37 @@
+{% extends 'Admin/admin-index.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="search_notification#about">
+<table width="200" border="1" class="table  text-center  table-bordered table-striped">
+  <tr class="text-center">
+    <td colspan="4">
+      <label for="search">Date:</label>
+      <input type="date" name="search" class="form-control-sm" id="search" value="{{sr}}" required/>
+     <input type="submit" name="Submit2" value="Go" class="btn btn-outline-info btn-sm" /></td>
+  </tr>
+  <tr class="thead-dark">
+    <th>s/no</th>
+    <th>Notification</th>
+    <th>Date</th>
+    <th>&nbsp;</th>
+  </tr>
+    {% for i in val %}
+  <tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{ i.notification }}&nbsp;</td>
+    <td>{{ i.date }}&nbsp;</td>
+    <td><a href="delete_notification/{{i.id}}#about" class="btn btn-outline-danger" onclick="return confirm('are you want to delete?')">Delete</a></td>
+  </tr>
+    {% endfor %}
+  <tr>
+    <td colspan="4">
+     
+      <div align="center">
+          <a href="add_notification#about" class="btn btn-outline-success"  >Add</a>
+      </div>
+     
+     </td>
+  </tr>
+</table> </form>  
+</body>
+{% endblock %}

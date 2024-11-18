@@ -1,0 +1,47 @@
+{% extends 'Staff/staff-index.html' %}
+{% block body %}
+
+<body>
+<table width="200" border="1" class="table  table-light table-bordered table-striped">
+  <tr>
+    <td colspan="6">
+      <form id="form1" name="form1" method="post" action="search_notes_staff#about">
+      <div align="center">
+        <label for="search">Subject:</label>
+        <select name="search" class="form-select-sm">
+          {% for i in subject %}
+          <option {% if sr == i.name %} selected {% endif %} value="{{i.name}}">{{i.name}}</option>
+          {% endfor %}
+          </select>
+        <input type="submit" class="btn btn-outline-info btn-sm " name="Submit" value="Go" />
+        </div>
+    </form>    </td>
+  </tr>
+ 
+  <tr class="thead-dark">
+    <th>s/no</th>
+    <th>Subject</th>
+    <th>Title</th>
+    <th>Note</th>
+    <th>Date</th>
+    <th>&nbsp;</th>
+  </tr>
+
+  {% for i in val %}
+  <tr>
+    <td>{{forloop.counter}}</td>
+    <td>{{i.SUBJECT.name}}</td>
+    <td>{{i.title}}</td>
+    <td><a href="{{i.note.url}}" download class="text-primary">Download</a></td>
+    <td>{{i.date}}</td>
+    <td>
+      <a href="edit_note/{{i.id}}#about" class="btn btn-outline-primary mr-2">edit</a>
+      <a href="delete_note/{{i.id}}"  class="btn btn-outline-danger" onclick="return confirm('are you want to delete?')">delete</a></td>
+  </tr>
+  {% endfor %}
+  <tr>
+    <td colspan="6"><div align="center"><a href="add_notes#about" class="btn btn-outline-success">Add</a></div></td>
+  </tr>
+</table>
+</body>
+{% endblock %}

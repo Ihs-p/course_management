@@ -1,0 +1,44 @@
+{% extends 'Staff/staff-index.html' %}
+{% block body %}
+<body>
+<table width="300" border="1" class="table text-center  table-light table-bordered table-striped">
+  <tr>
+    <td colspan="5">
+        <form id="form1" name="form1" method="post" action="search_application#about">
+
+          <label for="search">Date:</label>
+      <input type="date" name="search" class="form-control-sm" id="search" value="{{sr}}" />
+        <input type="submit" name="Submit" class="btn btn-outline-info btn-sm " value="Go" /> 
+
+        
+
+    </form>
+    </td>
+  </tr>
+  <tr class="thead-dark">
+    <td>S/no</td>
+    <td>Student</td>
+    <td>Course</td>
+    <td>Date</td>
+    <td>Status</td>
+  </tr>
+
+  {% for i in val %}
+  <tr>
+    <td>{{forloop.counter}}</td>
+
+    <td>{{i.STUDENT.name}}</td>
+    <td>{{i.COURSE.name}}</td>
+    <td>{{i.date}}</td>
+    <td>
+        {% if i.status == 'pending' %}<a href="accept_application/{{ i.id }}" class="btn btn-outline-success">Accept</a>
+          <a href="reject_application/{{ i.id }}" class="btn btn-outline-danger">Reject</a></td>
+         {% else %}
+            {{ i.status }}
+        {% endif %}
+  </tr>
+  {% endfor %}
+
+</table>
+</body>
+{% endblock %}

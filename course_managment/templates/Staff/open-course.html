@@ -1,0 +1,23 @@
+{% extends 'Staff/staff-index.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="search_open_course_staff#about">
+  <table width="200" border="1" class="table  table-light table-bordered table-striped">
+    <tr class="thead-dark">
+      <th>s/no</th>
+      <th>OPEN COURSE</th>
+      <th>COURSE</th>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.SUBJECT.name }}</td>
+      <td>{{ i.COURSE.name }}</td>
+
+    </tr>
+      {% endfor %}
+
+  </table>
+</form>
+</body>
+{% endblock %}

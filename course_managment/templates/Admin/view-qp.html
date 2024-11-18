@@ -1,0 +1,39 @@
+{% extends 'Admin/admin-index.html' %}
+{% block body %}
+<body>
+<table width="400" border="1" class="table  table-light table-bordered table-striped text-center">
+  <tr>
+    <td colspan="6"><form id="form1" name="form1" method="post" action="search_qp#about">
+     
+      <label for="search">Title:</label>
+       <input type="text" name="search" class="form-control-sm" id="search" value="{{ sr }}" required/>
+        <input type="submit" name="Submit" class="btn btn-outline-info btn-sm "  value="Go" /> 
+
+    
+
+    </form>
+    </td>
+  </tr>
+
+  <tr class="thead-dark">
+    <th>s/no</th>
+    <th>Title</th>
+    <th>Year</th>
+    <th>Date</th>
+    <th>Staff</th>
+    <th>QP</th>
+  </tr>
+    {% for i in val %}
+  <tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{ i.title }}&nbsp;</td>
+    <td>{{ i.year }}</td>
+    <td>{{ i.date }}&nbsp;</td>
+    <td>{{ i.sname }}&nbsp;</td>
+    <td><a href="{{ i.qp.url }}" download><p class="btn-outline-primary btn">download</p></a>&nbsp;</td>
+   {% endfor %}
+
+  </tr>
+</table>
+</body>
+{% endblock %}

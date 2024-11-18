@@ -1,0 +1,18 @@
+{% extends 'Staff/staff-index.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/send_reply_post#about">
+  <table width="300" border="1" class="table  table-light table-bordered table-striped">
+    <tr>
+      <td>Reply
+      <textarea name="reply"></textarea></td>
+    </tr>
+    <tr>
+      <td><div align="center">
+        <input type="submit" name="Submit" value="Send" />
+      </div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

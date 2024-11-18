@@ -1,0 +1,18 @@
+{% extends 'Admin/admin-index.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="add_notification_post">
+  <table width="200" border="1" class="table  table-light table-bordered table-striped">
+    <tr>
+      <td>Notification</td>
+      <td><input type="text" class="form-control" name="notification" required/></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center">
+        <input type="submit" class="btn btn-outline-success" name="Submit" value="Add" />
+      </div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

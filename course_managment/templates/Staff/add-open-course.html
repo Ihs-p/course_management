@@ -1,0 +1,37 @@
+{% extends 'Staff/staff-index.html' %}
+{% block body %}
+<body>
+<form action="add_open_course_post#about" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table width="200" border="1" class="table  table-light table-bordered table-striped">
+    <tr>
+      <td>Subject</td>
+      <td><select name="subject">
+        {% for i in subject %}
+
+        <option value="{{i.id}}">{{i.name}}</option>
+
+        {% endfor %}
+      </select>
+      </td>
+    </tr>
+  <tr>
+      <td>Course</td>
+      <td><select name="course">
+        {% for i in course %}
+
+        <option value="{{i.id}}">{{i.name}}</option>
+
+        {% endfor %}
+      </select>
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2"><div align="center">
+        <input type="submit" name="Submit" value="Add" />
+      </div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

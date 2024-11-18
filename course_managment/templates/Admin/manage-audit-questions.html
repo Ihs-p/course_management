@@ -1,0 +1,51 @@
+{% extends 'Admin/admin-index.html' %}
+{% block body %}
+<body>
+
+<table width="400" border="1" class="table text-center   table-light table-bordered table-striped" >
+  <tr> <form id="form1" name="form1" method="post" action="/search_audit_questions_admin#about">
+    <td colspan="8"><div align="center">Name
+      <input type="text" name="search" value="{{ sr }}" required />
+        <input type="submit" name="Submit" value="Go" />
+    </div></td>
+    </form>
+  </tr>
+  <th colspan="8">{{name}}</th>
+
+  <tr class="thead-dark">
+    <td>S/no</td>
+    <td>question</td>
+    <td>option 1</td>
+    <td>option 2</td>
+    <td>option 3</td>
+    <td>option 4</td>
+    <td>Answer</td>
+    <td></td>
+  </tr>
+  {% for i in val %}
+
+  <tr>
+    <td>{{forloop.counter}}</td>
+    <td>{{i.question}}</td>
+    <td>{{i.option_1}}</td>
+    <td>{{i.option_2}}</td>
+    <td>{{i.option_3}}</td>
+    <td>{{i.option_4}}</td>
+    <td>{{i.answer}}</td>
+    <td><a href="/delete_audit_question/{{ i.id }}#about" onclick="return confirm('are you want to delete?')">Delete</a></td>
+
+  </tr>
+  {% endfor %}
+
+<tr>
+      <td colspan="8">
+          <div align="center">
+          <a href="/add_audit_questions#about">Add</a>
+</div>
+      </td>
+      </tr>
+
+</table>
+
+</body>
+{% endblock %}

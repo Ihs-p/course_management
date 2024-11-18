@@ -1,0 +1,35 @@
+{% extends 'Admin/admin-index.html' %}
+{% block body %}
+<body>
+<table  width="400" border="1" class="table  table-light table-bordered table-striped">
+  <tr class="text-center">
+    <td colspan="5"><form id="form1" name="form1" method="post" action="search_notes#about">
+
+      <label for="search">subject:</label>
+       <input type="text" name="search" class="form-control-sm" id="search" value="{{ sr }}" required />
+        <input type="submit" name="Submit" class="btn btn-outline-info btn-sm" value="Go" /> 
+
+
+    </form>
+    </td>
+  </tr>
+  <tr class="thead-dark">
+    <th>s/no</th>
+    <th>Title</th>
+    <th>Date</th>
+    <th>Staff</th>
+    <th>Note</th>
+  </tr>
+    {% for i in val %}
+  <tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{ i.title}}</td>
+    <td>{{ i.date }}</td>
+    <td>{{ i.sname }}</td>
+    <td><a href="{{ i.note.url }}"  download ><p class="btn-outline-primary btn">download</p></a> </td>
+
+  </tr>
+    {% endfor %}
+</table>
+</body>
+{% endblock %}

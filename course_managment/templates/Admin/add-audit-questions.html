@@ -1,0 +1,40 @@
+{% extends 'Admin/admin-index.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="add_audit_questions_post">
+  <table width="200" border="1" class="table  table-light table-bordered table-striped">
+    <tr>
+      <td>question</td>
+      <td><input type="text" name="question" required/></td>
+    </tr>
+    <tr>
+      <td>option 1</td>
+      <td><input type="text" name="option_1" required /></td>
+    </tr>
+    <tr>
+      <td>option 2</td>
+      <td><input type="text" name="option_2" required/></td>
+    </tr>
+         <tr>
+      <td>option 3</td>
+      <td><input type="text" name="option_3" required/></td>
+    </tr>
+         <tr>
+      <td>option 4</td>
+      <td><input type="text" name="option_4" required/></td>
+    </tr>
+      <tr>
+      <td>Answer</td>
+      <td><input type="text" name="answer" required/></td>
+    </tr>
+
+
+    <tr>
+      <td colspan="2"><div align="center">
+        <input type="submit" name="Submit" value="Add" />
+      </div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends 'Admin/admin-index.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" enctype="multipart/form-data" action="/add_teacher_post">
+  <table width="200" border="1" class="table  table-light table-bordered table-striped">
+    <tr>
+      <td>Name</td>
+      <td><input type="text" class="form-control" name="Name" required/></td>
+    </tr>
+    <tr>
+      <td>Photo</td>
+      <td><input name="file" class="form-control" type="file" required/></td>
+    </tr>
+    <tr>
+      <td>Place</td>
+      <td><input type="text" class="form-control" name="place" required/></td>
+    </tr>
+    <tr>
+      <td>Post</td>
+      <td><input type="text" class="form-control" name="Post" required/></td>
+    </tr>
+    <tr>
+      <td>Pin</td>
+      <td><input type="text" class="form-control" name="Pin" required pattern="[0-9]{6}"/></td>
+    </tr>
+    <tr>
+      <td>Phone</td>
+      <td><input type="text" class="form-control" name="Phone" required pattern="[0-9]{10}"/></td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td><input type="email" class="form-control" name="Email" required/></td>
+    </tr>
+    <tr>
+      <td>course</td>
+      <td><select name="course" class="form-control form-select">
+
+          {% for i in val  %}
+              <option value="{{ i.id }}">{{ i.name }}</option>
+          {% endfor %}
+      </select>
+      </td>
+    </tr>
+    <tr>
+      <td>Username</td>
+      <td><input type="text" name="Username" class="form-control"  required/></td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td><input type="password" name="Password" class="form-control" required /></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center">
+        <input type="submit" class="btn btn-success" name="Submit" value="Add" />
+      </div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

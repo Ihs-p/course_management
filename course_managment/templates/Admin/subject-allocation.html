@@ -1,0 +1,32 @@
+{% extends 'Admin/admin-index.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="subject_allocation_post">
+  <table width="200" border="1"  class="table table-light table-bordered table-striped" >
+    <tr>
+      <td>Staff</td>
+      <td><select name="staff" class="form-select" required>
+          {% for i in staff %}
+              <option value="{{ i.id }}">{{ i.name }} - {{ i.COURSE.name }} </option>
+          {% endfor %}
+      </select>
+      </td>
+    </tr>
+    <tr class="thead-dark">
+      <td>Subject</td>
+      <td><select name="subject" class="form-select">
+            {% for i in subject %}
+              <option value="{{ i.id }}">{{ i.name }}</option>
+          {% endfor %}
+      </select>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center">
+        <input type="submit" class="btn btn-outline-success" name="Submit" value="Add" />
+      </div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

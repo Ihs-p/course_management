@@ -1,0 +1,75 @@
+{% extends 'Admin/admin-index.html' %} {% block body %}
+<body>
+  <form id="form1" name="form1" method="post" action="search_course#about">
+    <table
+      class="table text-center table-light table-bordered table-striped"
+      width="200"
+      
+    >
+      <tr class="text-center">
+        <td colspan="6">
+
+
+        <label for="search">Course:</label>
+        
+          <input
+            type="text"
+            name="search"
+            class="form-control-sm"
+            value="{{ sr }}"
+            required
+          />
+          <input
+            type="submit"
+            name="Submit"
+            value="search"
+            class="btn btn-outline-info btn-sm"
+            
+          /> 
+
+          
+
+
+        </td>
+      </tr>
+      <tr class="thead-dark">
+        <th>s/no</th>
+        <th>Course</th>
+        <th>Duration</th>
+        <th>Details</th>
+        <th>Fees</th>
+        <th></th>
+      </tr>
+      {% for i in val %}
+      <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ i.name }}</td>
+        <td>&nbsp;{{ i.duration }}</td>
+        <td>{{ i.details }}</td>
+        <td>{{ i.fees }}</td>
+        <td>
+          <a
+            href="edit_course/{{ i.id }}#about"
+            class="btn btn-outline-primary mr-2"
+            >Edit </a
+          ><a
+            href="delete_course/{{i.id}}"
+            class="btn btn-outline-danger"
+            onclick="return confirm('are you want to delete?')"
+          >
+            Delete</a
+          >
+        </td>
+      </tr>
+      {% endfor %}
+      <tr>
+        <td colspan="6">
+          <div align="center">
+            <a href="add_course#about" class="btn btn-outline-success">Add</a>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </form>
+</body>
+{% endblock %}

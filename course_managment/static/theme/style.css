@@ -1,0 +1,18 @@
+body{
+    color: var(--color);
+    background-color: var(--background);
+  }
+:root{
+  --color:"#ffffff";
+  --background:"#ffffff"
+}
+#theme-icon{
+    width: 50px;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .dark-mode{
+    --color: #ffffff;
+    --background: #000000;
+  }

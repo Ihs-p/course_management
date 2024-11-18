@@ -1,0 +1,29 @@
+{% extends 'Admin/admin-index.html' %}
+{% block body %}
+
+<body>
+<table width="200" border="1" class="table text-center table-striped  table-bordered">
+
+  <tr class=" thead-dark">
+    <th>s/no</th>
+    <th>Staff</th>
+    <th>Subject</th>
+    <th></th>
+  </tr>
+    {% for i in val %}
+  <tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{ i.STAFF.name}}</td>
+    <td>{{ i.SUBJECT.name}} </td>
+    <td><a href="delete_subject_allocation/{{i.id}}" class="btn btn-outline-danger mr-2" onclick="return confirm('are you want to delete?')">delete</a></td>
+  </tr>
+    {% endfor %}
+    <tr>
+        <td colspan="4"><div align="center">
+            <a href="subject_allocation#about" class="btn btn-outline-success">Allocate</a>
+        </div>
+        </td>
+    </tr>
+</table>
+</body>
+{% endblock %}

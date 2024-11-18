@@ -1,0 +1,39 @@
+{% extends 'Admin/admin-index.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="search_open_course_admin#about">
+  <table width="200" border="1" class="table text-center  table-light table-bordered table-striped">
+     <tr >
+      <td colspan="6" >Course:
+      <select name="search" class="form-select-sm"    required>
+
+{#      <option value="">select course</option>#}
+          {% for i in course %}
+          <option {% if sr == i.name %} selected {% endif %} value="{{ i.name }}">{{ i.name }}</option>
+          {% endfor %}
+      </select>
+      <input type="submit" class="btn btn-outline-info btn-sm" name="Submit" value="search" />
+	  </td>
+    </tr>
+    <tr class="thead-dark">
+      <th>s/no</th>
+      <th>OPEN COURSE</th>
+      <th>COURSE</th>
+      <th>&nbsp;</th>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.SUBJECT.name }}</td>
+      <td>{{ i.COURSE.name }}</td>
+
+      <td><a href="delete_open_course_admin/{{i.id}}" onclick="return confirm('are you want to delete?')" class="btn btn-outline-danger"> Delete</a></td>
+    </tr>
+      {% endfor %}
+    <tr>
+      <td colspan="6"><div align="center"><a href="add_open_course_admin#about" class="btn btn-outline-success">Add</a></div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

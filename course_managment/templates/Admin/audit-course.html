@@ -1,0 +1,49 @@
+{% extends 'Admin/admin-index.html' %}
+{% block body %}
+
+<body>
+<table width="400" border="1" class="table table-striped table-light table-bordered">
+  <tr class="text-center">
+    <td colspan="5">
+      <form  method="post" action="search_audit_admin">
+
+
+        <label for="search">name:</label>
+        
+        <input type="text" name="search" class="form-control-sm" id="search" value="{{sr}}" />
+        <input type="submit" name="Submit" class="btn btn-outline-info btn-sm " value="Go" />
+      
+
+     
+
+
+
+    </form>    </td>
+  </tr>
+  <tr class="thead-dark">
+    <th>s/no</th>
+    <th>Name</th>
+    <th>Sem</th>
+    <th>Audit Course</th>
+    <th>&nbsp;</th>
+  </tr>
+  {% for i in val %}
+  <tr>
+    <td>{{forloop.counter}}</td>
+    <td>{{i.name}}</td>
+    <td>{{i.sem}}</td>
+    <td>{{i.COURSE.name}}</td>
+    <td><a href="audit_questions_admin/{{i.id}}#about" class="btn btn-outline-primary">questions</a></td>
+  </tr>
+  {% endfor %}
+
+   <tr>
+      <td colspan="7">
+          <div align="center">
+          <a href="add_audit_course#about" class="btn btn-outline-success">Add</a>
+</div>
+      </td>
+      </tr>
+</table>
+</body>
+{% endblock %}

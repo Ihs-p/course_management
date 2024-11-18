@@ -1,0 +1,37 @@
+{% extends 'Admin/admin-index.html' %}
+{% block body %}
+<body>
+<form action="add_open_course_post_admin" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table width="200" border="1" class="table  table-light table-bordered table-striped">
+    <tr>
+      <td>Subject</td>
+      <td><select name="subject" class="form-select required>
+        {% for i in subject %}
+
+        <option value="{{i.id}}">{{i.name}} - {% if i.COURSE == None %} Open Course{% else %}{{ i.COURSE.name }}{% endif %}</option>
+
+        {% endfor %}
+      </select>
+      </td>
+    </tr>
+  <tr>
+      <td>Course</td>
+      <td><select name="course" class="form-select" required>
+        {% for i in course %}
+
+        <option value="{{i.id}}">{{i.name}}</option>
+
+        {% endfor %}
+      </select>
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2"><div align="center">
+        <input type="submit" name="Submit" class="btn btn-outline-success" value="Add" />
+      </div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

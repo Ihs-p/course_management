@@ -1,0 +1,35 @@
+{% extends 'Admin/admin-index.html' %}
+{% block body %}
+
+<body>
+<form action="/edit_program_post" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table width="200" border="1" class="table table-light  table-striped">
+    <tr>
+      <td>Name</td>
+      <td><input type="text"  class="form-control" name="name" value="{{program.name}}" required /></td>
+    </tr>
+    <tr>
+      <td>Photo</td>
+      <td>
+        <input type="file" class="form-control" name="photo" 
+        onchange="document.getElementById('Image').src = window.URL.createObjectURL(this.files[0])"/>
+        <img src="{{program.photo.url}}" id="Image" width="100" height="150" >
+      </td>
+    </tr>
+    <tr>
+      <td>Details</td>
+      <td><textarea name="details" class="form-control" required>{{program.details}}</textarea></td>
+    </tr>
+    <tr>
+      <td>Date</td>
+      <td><input type="date" class="form-control" name="date"  value="{{program.date}}" required /></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center">
+        <input type="submit" class="btn btn-outline-success " name="Submit" value="Edit" />
+      </div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

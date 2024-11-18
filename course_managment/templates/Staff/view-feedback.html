@@ -1,0 +1,36 @@
+{% extends 'Staff/staff-index.html' %}
+{% block body %}
+
+<body>
+<table width="300" border="1" class="table  table-light table-bordered table-striped">
+  <tr>
+    <td colspan="3">
+	<form id="form1" name="form1" method="post" action="search_feedback_staff#about">
+
+       <div align="center">
+        <label for="search">Date:</label>
+        <input type="date" class="form-control-sm" id="search" name="search" value="{{sr}}"/>
+          <input type="submit" class="btn btn-outline-info btn-sm " name="Submit" value="Go" />
+      </div> 
+
+     
+
+	</form>
+    </td>
+  </tr>
+  <tr class="thead-dark">
+    <td>s/no</td>
+    <td>Student</td>
+    <td>Feedback</td>
+  </tr>
+  {% for i in val %}
+  <tr>
+    <td>{{forloop.counter}}</td>
+    <td>{{i.STUDENT.name}}</td>
+    <td>{{i.feedback}}</td>
+  </tr>
+  {% endfor %}
+
+</table>
+</body>
+{% endblock %}

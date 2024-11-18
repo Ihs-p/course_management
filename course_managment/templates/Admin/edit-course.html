@@ -1,0 +1,30 @@
+{% extends 'Admin/admin-index.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/edit_course_post">
+  <table width="200" border="1" class="table  table-light table-bordered table-striped">
+    <tr>
+      <td>Name</td>
+      <td><input type="text" class="form-control" name="Name" value="{{course.name}}" required/></td>
+    </tr>
+    <tr>
+      <td>Duration</td>
+      <td><input type="text" class="form-control" name="Duration" value="{{course.duration}}" required/></td>
+    </tr>
+    <tr>
+      <td>Details</td>
+      <td><input type="text" class="form-control" name="Details" value="{{course.details}}" required/></td>
+    </tr>
+    <tr>
+      <td>Fees</td>
+      <td><input type="text" class="form-control" name="Fees" value="{{course.fees}}" required pattern="[0-9]{5}"/></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center">
+        <input type="submit" name="Submit" value="Edit" class="btn btn-outline-success" />
+      </div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

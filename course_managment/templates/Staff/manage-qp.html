@@ -1,0 +1,45 @@
+{% extends 'Staff/staff-index.html' %}
+{% block body %}
+<body>
+<table width="300" border="1" class="table  table-light table-bordered table-striped">
+  <tr align="center">
+    <form action="search_qp_staff#about" method="post" >
+    <td colspan="7">Subject:
+      <select name="search" class="form-select-sm"  >
+        {% for i in subject %}
+        <option {% if sr == i.name %} selected {% endif %}value="{{i.name}}">{{i.name}}</option>
+        {% endfor %}
+      </select>
+      <input type="submit" class="btn btn-outline-info btn-sm " value="search">
+   
+    </form>
+  </td>
+ 
+</tr>
+  <tr class="thead-dark">
+    <th>s/no</th>
+    <th>Subject</th>
+    <th>Title</th>
+    <th>Year</th>
+    <th>QP</th>
+    <th>&nbsp;</th>
+  </tr>
+  {% for i in val%}
+  <tr>
+    <td>{{forloop.counter}}</td>
+    <td>{{i.SUBJECT.name}}</td>
+    <td>{{i.title}}</td>
+    <td>{{i.year}}</td>
+    <td><a href="{{i.qp.url}}" download class="text-primary">Download</a></td>
+    <td>
+      <a href="edit_qp/{{i.id}}#about" class="btn btn-outline-primary mr-2">edit</a>
+       <a href="delete_qp/{{i.id}}"  class="btn btn-outline-danger" onclick="return confirm('are you want to delete?')">delete</a></td>
+  </tr>
+  {% endfor %}
+  <tr>
+    <td colspan="6"><div align="center"><a class="btn btn-outline-success" href="add_qp#about">Add</a></div></td>
+  </tr>
+  
+</table>
+</body>
+{% endblock %}

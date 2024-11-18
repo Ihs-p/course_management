@@ -1,0 +1,51 @@
+{% extends 'Staff/staff-index.html' %}
+{% block body %}
+  <body>
+    <table width="300"  class="table  table-light table-bordered table-striped text-center">
+      <tr>
+        <td colspan="6">
+          <form id="form1" name="form1" method="post" action="search_events_staff#about">
+            <label for="search">Date:</label>
+            <input type="date" class="form-control-sm" name="search" id="search" value="{{sr}}" required />
+            <input type="submit" class="btn btn-outline-info btn-sm " name="Submit" value="Go" /> 
+          
+          
+          </form>
+        </td>
+      </tr>
+      <tr class="thead-dark">
+        <td>s/no</td>
+        <td>News/Event</td>
+        <td>Details</td>
+        <td>Date</td>
+        <td>&nbsp;</td>
+      </tr>
+      {% for i in val %}
+
+      <tr>
+        <td>{{forloop.counter}}</td>
+        <td>
+          <img
+            src="{{i.image.url}}"
+            alt="error"
+            width="150"
+            height="150"
+          /><br>{{i.news_events}}
+        </td>
+        <td>{{i.details}}</td>
+        <td>{{i.date}}</td>
+        <td>
+          <a href="edit_news_event/{{i.id}}#about" class="btn btn-outline-primary ">edit</a>
+          <a href="delete_news_event/{{i.id}}" class="btn btn-outline-danger" onclick="return confirm('are you want to delete?')">delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+      <tr>
+        <td colspan="6">
+          <div align="center"><a  href="add_news_events#about" class="btn btn-outline-success">Add</a></div>
+        </td>
+      </tr>
+    </table>
+  
+</body>
+{% endblock %}
